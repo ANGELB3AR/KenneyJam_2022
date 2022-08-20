@@ -9,12 +9,14 @@ public class Dart : MonoBehaviour
     [SerializeField] float firePower = 10f;
     [SerializeField] float defaultFireDistance = 100f;
 
+    Rigidbody rb;
     Scalar Scalar;
     Camera mainCamera;
     bool hasFired;
 
     void Awake()
     {
+        rb = GetComponent<Rigidbody>();
         Scalar = FindObjectOfType<Scalar>();
         mainCamera = Camera.main;
     }
@@ -24,7 +26,7 @@ public class Dart : MonoBehaviour
         ResetDart();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (hasFired) { return; }
         ResetDart();
@@ -34,6 +36,9 @@ public class Dart : MonoBehaviour
     {
         if (other.TryGetComponent<Platform>(out Platform platform))
         {
+            rb.isKinematic = true;
+            rb.useGravity = false;
+
             if (isPlusDart)
             {
                 Scalar.plusSlot = platform;
@@ -73,6 +78,8 @@ public class Dart : MonoBehaviour
             targetPoint = ray.GetPoint(defaultFireDistance);
         }
 
-        GetComponent<Rigidbody>().velocity = (targetPoint - transform.position).normalized * firePower;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+        rb.velocity = (targetPoint - transform.position).normalized * firePower;
     }
 }
