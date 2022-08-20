@@ -9,6 +9,13 @@ public class PlatformScalar : MonoBehaviour
 
     [SerializeField] Platform minusSlot = null;
     [SerializeField] Platform plusSlot = null;
+
+    private void OnEnable()
+    {
+        minusSlot.OnFinishedScaling += DisableTether;
+        plusSlot.OnFinishedScaling += DisableTether;
+    }
+
     void Update()
     {
         if (minusSlot != null && plusSlot != null)
@@ -21,8 +28,16 @@ public class PlatformScalar : MonoBehaviour
     {
         StartCoroutine(minusSlot.ScaleBlockDown(timeToScale));
         StartCoroutine(plusSlot.ScaleBlockUp(timeToScale));
+    }
 
-        //minusSlot = null;
-        //plusSlot = null;
+    void DisableTether()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void OnDisable()
+    {
+        minusSlot.OnFinishedScaling -= DisableTether;
+        plusSlot.OnFinishedScaling -= DisableTether;
     }
 }

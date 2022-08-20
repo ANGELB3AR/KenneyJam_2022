@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    public event Action OnFinishedScaling;
+    
     PlatformScalar scalar;
 
     void Awake()
@@ -26,6 +28,7 @@ public class Platform : MonoBehaviour
             transform.localScale = Vector3.Lerp(originalScale, newScale, i);
             yield return null;
         }
+        OnFinishedScaling?.Invoke();
     }
 
     public IEnumerator ScaleBlockDown(float time)
@@ -42,6 +45,7 @@ public class Platform : MonoBehaviour
             transform.localScale = Vector3.Lerp(originalScale, newScale, i);
             yield return null;
         }
+        OnFinishedScaling?.Invoke();
     }
 
 }
