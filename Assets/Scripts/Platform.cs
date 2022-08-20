@@ -7,11 +7,11 @@ public class Platform : MonoBehaviour
 {
     public bool isScaling = false;
     
-    PlatformScalar Scalar;
+    Scalar Scalar;
 
     void Awake()
     {
-        Scalar = FindObjectOfType<PlatformScalar>();
+        Scalar = FindObjectOfType<Scalar>();
     }
 
     public void ScaleUp()

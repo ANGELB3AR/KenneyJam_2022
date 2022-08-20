@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformScalar : MonoBehaviour
+public class Scalar : MonoBehaviour
 {
     [field: SerializeField] public float ScaleAmount { get; private set; } = 0.5f;
     [field: SerializeField] public float TimeToScale { get; private set; } = 1f;
