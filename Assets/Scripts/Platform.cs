@@ -5,13 +5,31 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    public bool isScaling = false;
-    
+    public event Action OnFinishedScaling;
+
+    [SerializeField] float minimumScale = 0.5f;
+
+    [HideInInspector] public bool isScaling = false;
+    [HideInInspector] public bool canScaleDown = true;
+
     Scalar Scalar;
 
     void Awake()
     {
         Scalar = FindObjectOfType<Scalar>();
+    }
+
+    private void Update()
+    {
+        //Mathf.Clamp(transform.localScale.x, minimumScale, Mathf.Infinity);
+        if (transform.localScale.x == minimumScale)
+        {
+            canScaleDown = false;
+        }
+        else
+        {
+            canScaleDown = true;
+        }
     }
 
     public void ScaleUp()
@@ -40,6 +58,7 @@ public class Platform : MonoBehaviour
             yield return null;
         }
         isScaling = false;
+        OnFinishedScaling?.Invoke();
     }
 
     IEnumerator ScaleBlockDown(float time)
@@ -58,6 +77,6 @@ public class Platform : MonoBehaviour
             yield return null;
         }
         isScaling = false;
+        OnFinishedScaling?.Invoke();
     }
-
 }

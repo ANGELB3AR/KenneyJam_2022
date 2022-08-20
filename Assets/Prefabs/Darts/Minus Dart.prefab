@@ -53,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5484148973108106574, guid: 2cafedd35038fa642991ce46d2762f14, type: 3}
       propertyPath: m_Name
-      value: Dart
+      value: Minus Dart
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cafedd35038fa642991ce46d2762f14, type: 3}
