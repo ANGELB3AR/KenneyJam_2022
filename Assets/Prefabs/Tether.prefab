@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2f1d52cda7d0b4c9d48c7ba448037d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Particles>k__BackingField: {fileID: 5455931608890970749, guid: deb657ae7c57190439bb0724f435e9b0, type: 3}
   <ScaleAmount>k__BackingField: 0.5
   <TimeToScale>k__BackingField: 1
   minusSlot: {fileID: 0}

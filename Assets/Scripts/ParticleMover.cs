@@ -8,8 +8,10 @@ public class ParticleMover : MonoBehaviour
     [SerializeField] Transform pointA;
     [SerializeField] Transform pointB;
     [SerializeField] float speed = 1f;
+    [SerializeField] Transform particleHolder;
 
     Scalar Scalar;
+    float distance;
 
     private void Awake()
     {
@@ -18,10 +20,11 @@ public class ParticleMover : MonoBehaviour
 
     void OnEnable()
     {
-        pointA.transform.position = Scalar.minusSlot.transform.position;
-        pointB.transform.position = Scalar.plusSlot.transform.position;
+        pointA.position = Scalar.minusSlot.transform.position;
+        pointB.position = Scalar.plusSlot.transform.position;
         var emission = particles.emission;
         emission.enabled = true;
+        distance = Vector3.Distance(pointA.position, pointB.position);
     }
 
     void OnDisable()
@@ -38,6 +41,6 @@ public class ParticleMover : MonoBehaviour
     void MoveParticles()
     {
         Debug.Log("Particles should be moving now");
-        particles.transform.position = Vector3.MoveTowards(pointA.transform.position, pointB.transform.position, speed * Time.deltaTime);
+        particleHolder.position = Vector3.MoveTowards(pointA.transform.position, pointB.transform.position, (speed / distance * Time.deltaTime));
     }
 }
