@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class Dart : MonoBehaviour
 {
-    Scalar scalar;
+    [SerializeField] bool isPlusDart;
+
+    Scalar Scalar;
 
     void Awake()
     {
-        scalar = FindObjectOfType<Scalar>();
+        Scalar = FindObjectOfType<Scalar>();
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Platform>(out Platform platform))
         {
-            Debug.Log("Hit the block");
+            if (isPlusDart)
+            {
+                Scalar.plusSlot = platform;
+            }
+            else if (!isPlusDart)
+            {
+                Scalar.minusSlot = platform;
+            }
         }
     }
 }
