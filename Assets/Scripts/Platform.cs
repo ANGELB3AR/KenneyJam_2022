@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
+    public event Action OnFinishedScaling;
+
     public bool isScaling = false;
     
     Scalar Scalar;
@@ -40,6 +42,7 @@ public class Platform : MonoBehaviour
             yield return null;
         }
         isScaling = false;
+        OnFinishedScaling?.Invoke();
     }
 
     IEnumerator ScaleBlockDown(float time)
@@ -58,5 +61,6 @@ public class Platform : MonoBehaviour
             yield return null;
         }
         isScaling = false;
+        OnFinishedScaling?.Invoke();
     }
 }

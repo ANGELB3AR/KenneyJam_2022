@@ -12,6 +12,7 @@ public class Dart : MonoBehaviour
     Rigidbody rb;
     Scalar Scalar;
     Camera mainCamera;
+    Platform currentPlatform = null;
     bool hasFired;
 
     void Awake()
@@ -38,6 +39,9 @@ public class Dart : MonoBehaviour
         {
             rb.isKinematic = true;
             rb.useGravity = false;
+
+            currentPlatform = platform;
+            currentPlatform.OnFinishedScaling += ResetDart;
 
             if (isPlusDart)
             {
@@ -91,5 +95,10 @@ public class Dart : MonoBehaviour
         rb.useGravity = true;
         rb.isKinematic = false;
         rb.velocity = (targetPoint - transform.position).normalized * firePower;
+    }
+
+    private void OnDisable()
+    {
+        currentPlatform.OnFinishedScaling -= ResetDart;
     }
 }
