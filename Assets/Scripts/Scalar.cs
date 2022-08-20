@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Scalar : MonoBehaviour
 {
+    [field: SerializeField] public ParticleMover Particles { get; private set; }
     [field: SerializeField] public float ScaleAmount { get; private set; } = 0.5f;
     [field: SerializeField] public float TimeToScale { get; private set; } = 1f;
 
@@ -12,6 +13,11 @@ public class Scalar : MonoBehaviour
 
     public Platform minusSlot = null;
     public Platform plusSlot = null;
+
+    private void Awake()
+    {
+        //Particles = FindObjectOfType<ParticleMover>();
+    }
 
     void Update()
     {
