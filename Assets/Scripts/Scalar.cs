@@ -23,6 +23,12 @@ public class Scalar : MonoBehaviour
                 return;
             }
 
+            if (!minusSlot.canScaleDown)
+            {
+                DisableTether();
+                return;
+            }
+
             ScalePlatforms();
 
             if (minusSlot.isScaling || plusSlot.isScaling)
