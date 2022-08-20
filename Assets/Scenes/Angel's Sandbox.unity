@@ -355,6 +355,17 @@ PrefabInstance:
       objectReference: {fileID: 6006018824914463612}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63849fd1cc3419a45baa86a762a587c1, type: 3}
+--- !u!114 &955367150 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7274530235930989168, guid: 63849fd1cc3419a45baa86a762a587c1, type: 3}
+  m_PrefabInstance: {fileID: 955367149}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90fbfd640ec8e34ebf51d3e6835c963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1214044302
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,6 +427,17 @@ PrefabInstance:
       objectReference: {fileID: 6006018824914463613}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbda4cee0be479e439a07d38d04b651c, type: 3}
+--- !u!114 &1214044303 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2870596906818718962, guid: bbda4cee0be479e439a07d38d04b651c, type: 3}
+  m_PrefabInstance: {fileID: 1214044302}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e90fbfd640ec8e34ebf51d3e6835c963, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1785639867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -651,18 +673,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1711264734885181515, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3235870443662153815, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
-      propertyPath: m_Icon
+    - target: {fileID: 6006018824914463615, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
+      propertyPath: plusDart
       value: 
-      objectReference: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
-    - target: {fileID: 5920537488705975633, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
-      propertyPath: m_Icon
+      objectReference: {fileID: 1214044303}
+    - target: {fileID: 6006018824914463615, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
+      propertyPath: minusDart
       value: 
-      objectReference: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+      objectReference: {fileID: 955367150}
     - target: {fileID: 8879757212292652642, guid: 30e53be5da0eb70428c9072cef243324, type: 3}
       propertyPath: m_RootOrder
       value: 0

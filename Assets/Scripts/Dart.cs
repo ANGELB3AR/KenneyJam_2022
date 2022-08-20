@@ -6,13 +6,17 @@ public class Dart : MonoBehaviour
 {
     [SerializeField] bool isPlusDart;
     [SerializeField] Transform readyPosition;
+    [SerializeField] float firePower = 10f;
+    [SerializeField] float defaultFireDistance = 100f;
 
     Scalar Scalar;
+    Camera mainCamera;
     bool hasFired;
 
     void Awake()
     {
         Scalar = FindObjectOfType<Scalar>();
+        mainCamera = Camera.main;
     }
 
     private void Start()
@@ -55,6 +59,21 @@ public class Dart : MonoBehaviour
 
     public void LaunchDart()
     {
-        Debug.Log("Firing Dart");
+        hasFired = true;
+
+        Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+        Vector3 targetPoint;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            targetPoint = hit.point;
+        }
+        else
+        {
+            targetPoint = ray.GetPoint(defaultFireDistance);
+        }
+
+        GetComponent<Rigidbody>().velocity = (targetPoint - transform.position).normalized * firePower;
     }
 }
