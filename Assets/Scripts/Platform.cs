@@ -5,19 +5,30 @@ using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
-    public event Action OnFinishedScaling;
+    public bool isScaling = false;
     
-    PlatformScalar scalar;
+    PlatformScalar Scalar;
 
     void Awake()
     {
-        scalar = FindObjectOfType<PlatformScalar>();
+        Scalar = FindObjectOfType<PlatformScalar>();
     }
 
-    public IEnumerator ScaleBlockUp(float time)
+    public void ScaleUp()
     {
+        StartCoroutine(ScaleBlockUp(Scalar.TimeToScale));
+    }
+
+    public void ScaleDown()
+    {
+        StartCoroutine(ScaleBlockDown(Scalar.TimeToScale));
+    }
+
+    IEnumerator ScaleBlockUp(float time)
+    {
+        isScaling = true;
         Vector3 originalScale = transform.localScale;
-        Vector3 newScale = originalScale + new Vector3(scalar.ScaleAmount, scalar.ScaleAmount, scalar.ScaleAmount);
+        Vector3 newScale = originalScale + new Vector3(Scalar.ScaleAmount, Scalar.ScaleAmount, Scalar.ScaleAmount);
 
         float i = 0f;
         float rate = (1f / time);
@@ -28,13 +39,14 @@ public class Platform : MonoBehaviour
             transform.localScale = Vector3.Lerp(originalScale, newScale, i);
             yield return null;
         }
-        OnFinishedScaling?.Invoke();
+        isScaling = false;
     }
 
-    public IEnumerator ScaleBlockDown(float time)
+    IEnumerator ScaleBlockDown(float time)
     {
+        isScaling = true;
         Vector3 originalScale = transform.localScale;
-        Vector3 newScale = originalScale - new Vector3(scalar.ScaleAmount, scalar.ScaleAmount, scalar.ScaleAmount);
+        Vector3 newScale = originalScale - new Vector3(Scalar.ScaleAmount, Scalar.ScaleAmount, Scalar.ScaleAmount);
 
         float i = 0f;
         float rate = (1f / time);
@@ -45,7 +57,7 @@ public class Platform : MonoBehaviour
             transform.localScale = Vector3.Lerp(originalScale, newScale, i);
             yield return null;
         }
-        OnFinishedScaling?.Invoke();
+        isScaling = false;
     }
 
 }

@@ -5,39 +5,42 @@ using UnityEngine;
 public class PlatformScalar : MonoBehaviour
 {
     [field: SerializeField] public float ScaleAmount { get; private set; } = 0.5f;
-    [SerializeField] float timeToScale = 1f;
+    [field: SerializeField] public float TimeToScale { get; private set; } = 1f;
 
     [SerializeField] Platform minusSlot = null;
     [SerializeField] Platform plusSlot = null;
-
-    private void OnEnable()
-    {
-        minusSlot.OnFinishedScaling += DisableTether;
-        plusSlot.OnFinishedScaling += DisableTether;
-    }
 
     void Update()
     {
         if (minusSlot != null && plusSlot != null)
         {
-            ScalePlatforms();
+            EnableTether();
+        }
+
+        if (minusSlot.isScaling || plusSlot.isScaling)
+        {
+            DisableTether();
         }
     }
 
     void ScalePlatforms()
     {
-        StartCoroutine(minusSlot.ScaleBlockDown(timeToScale));
-        StartCoroutine(plusSlot.ScaleBlockUp(timeToScale));
+        Debug.Log("Scale platforms");
+        minusSlot.ScaleDown();
+        plusSlot.ScaleUp();
+    }
+
+    void EnableTether()
+    {
+        Debug.Log("Tether enabled");
+        ScalePlatforms();
     }
 
     void DisableTether()
     {
+        Debug.Log("Tether disabled");
+        minusSlot = null;
+        plusSlot = null;
         gameObject.SetActive(false);
-    }
-
-    private void OnDisable()
-    {
-        minusSlot.OnFinishedScaling -= DisableTether;
-        plusSlot.OnFinishedScaling -= DisableTether;
     }
 }

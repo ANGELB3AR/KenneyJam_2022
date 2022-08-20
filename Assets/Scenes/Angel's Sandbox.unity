@@ -252,8 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <ScaleAmount>k__BackingField: 0.5
   <TimeToScale>k__BackingField: 1
-  minusSlot: {fileID: 1785639868}
-  plusSlot: {fileID: 875206515}
+  minusSlot: {fileID: 0}
+  plusSlot: {fileID: 0}
 --- !u!4 &216062319
 Transform:
   m_ObjectHideFlags: 0
@@ -426,17 +426,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
---- !u!114 &875206515 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 838181387492162275, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
-  m_PrefabInstance: {fileID: 875206514}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc5a7844fa2e454288c6fd7cb05ab59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1785639867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -510,17 +499,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
---- !u!114 &1785639868 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 838181387492162275, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
-  m_PrefabInstance: {fileID: 1785639867}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc5a7844fa2e454288c6fd7cb05ab59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1906719157
 GameObject:
   m_ObjectHideFlags: 0
