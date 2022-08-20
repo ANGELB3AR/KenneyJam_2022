@@ -15,11 +15,11 @@ public class Scalar : MonoBehaviour
         if (minusSlot != null && plusSlot != null)
         {
             EnableTether();
-        }
 
-        if (minusSlot.isScaling || plusSlot.isScaling)
-        {
-            DisableTether();
+            if (minusSlot.isScaling || plusSlot.isScaling)
+            {
+                DisableTether();
+            }
         }
     }
 
