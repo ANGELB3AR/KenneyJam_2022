@@ -5,12 +5,25 @@ using UnityEngine;
 public class Dart : MonoBehaviour
 {
     [SerializeField] bool isPlusDart;
+    [SerializeField] Transform readyPosition;
 
     Scalar Scalar;
+    bool hasFired;
 
     void Awake()
     {
         Scalar = FindObjectOfType<Scalar>();
+    }
+
+    private void Start()
+    {
+        ResetDart();
+    }
+
+    private void Update()
+    {
+        if (hasFired) { return; }
+        ResetDart();
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,6 +38,18 @@ public class Dart : MonoBehaviour
             {
                 Scalar.minusSlot = platform;
             }
+            hasFired = true;
         }
+        else
+        {
+            ResetDart();
+        }
+    }
+
+    void ResetDart()
+    {
+        transform.position = readyPosition.position;
+        transform.rotation = readyPosition.rotation;
+        hasFired = false;
     }
 }
