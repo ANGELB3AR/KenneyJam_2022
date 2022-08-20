@@ -42,10 +42,20 @@ public class Dart : MonoBehaviour
             if (isPlusDart)
             {
                 Scalar.plusSlot = platform;
+
+                if (!Scalar.isActiveAndEnabled)
+                {
+                    Scalar.enabled = true;
+                }
             }
             else if (!isPlusDart)
             {
                 Scalar.minusSlot = platform;
+
+                if (!Scalar.isActiveAndEnabled)
+                {
+                    Scalar.enabled = true;
+                }
             }
         }
         else
