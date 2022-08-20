@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    static LevelManager instance;
-    public LevelManager GetInstance() { return instance; }
-
     [SerializeField] int firstLevel = 1;
     [SerializeField] float levelResetTime = 1.5f;
     [SerializeField] float nextLevelLoadTime = 1.5f;
@@ -20,14 +17,15 @@ public class LevelManager : MonoBehaviour
 
     private void ManageSingleton()
     {
-        if (instance != null)
+        int instanceCount = FindObjectsOfType(GetType()).Length;
+
+        if (instanceCount > 1)
         {
             gameObject.SetActive(false);
             Destroy(gameObject);
         }
         else
         {
-            instance = this;
             DontDestroyOnLoad(gameObject);
         }
     }
