@@ -250,7 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2f1d52cda7d0b4c9d48c7ba448037d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ScaleAmount>k__BackingField: 25
+  <ScaleAmount>k__BackingField: 0.5
   <TimeToScale>k__BackingField: 1
   minusSlot: {fileID: 1785639868}
   plusSlot: {fileID: 0}
@@ -370,15 +370,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8930443899247820043, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
       propertyPath: m_LocalScale.x
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8930443899247820043, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
       propertyPath: m_LocalScale.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8930443899247820043, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
       propertyPath: m_LocalScale.z
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8930443899247820043, guid: 8f24be7b82000e14dac75976b0033fcf, type: 3}
       propertyPath: m_LocalPosition.x

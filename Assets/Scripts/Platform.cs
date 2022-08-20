@@ -14,23 +14,21 @@ public class Platform : MonoBehaviour
 
     void Start()
     {
-        ScaleBlockDown();
-    }
-
-    public void ScaleBlockDown()
-    {
-        Vector3 originalScale = transform.localScale;
-        Vector3 newScale = originalScale - new Vector3(scalar.ScaleAmount, scalar.ScaleAmount, scalar.ScaleAmount);
-
-        transform.localScale = Vector3.Lerp(originalScale, newScale, scalar.TimeToScale * Time.deltaTime);
-    }
-
-    public void ScaleBlockUp()
-    {
         Vector3 originalScale = transform.localScale;
         Vector3 newScale = originalScale + new Vector3(scalar.ScaleAmount, scalar.ScaleAmount, scalar.ScaleAmount);
-
-        transform.localScale = Vector3.Lerp(originalScale, newScale, scalar.TimeToScale * Time.deltaTime);
+        StartCoroutine(ScaleBlock(originalScale, newScale, scalar.TimeToScale));
     }
 
+    public IEnumerator ScaleBlock(Vector3 originalScale, Vector3 newScale, float time)
+    {
+        float i = 0f;
+        float rate = (1f / time);
+
+        while (i < 1f)
+        {
+            i += Time.deltaTime * rate;
+            transform.localScale = Vector3.Lerp(originalScale, newScale, i);
+            yield return null;
+        }
+    }
 }
