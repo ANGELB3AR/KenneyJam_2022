@@ -21,7 +21,6 @@ public class Platform : MonoBehaviour
 
     private void Update()
     {
-        //Mathf.Clamp(transform.localScale.x, minimumScale, Mathf.Infinity);
         if (transform.localScale.x == minimumScale)
         {
             canScaleDown = false;

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Line : MonoBehaviour
+public class LineController : MonoBehaviour
 {
     [SerializeField] LineRenderer lineRenderer;
     [SerializeField] Scalar Scalar;
@@ -10,16 +10,22 @@ public class Line : MonoBehaviour
     Transform pointA;
     Transform pointB;
 
-    void Start()
+    private void OnEnable()
+    {
+        lineRenderer.enabled = true;
+    }
+
+    public void RenderLine()
     {
         pointA.position = Scalar.minusSlot.transform.position;
         pointB.position = Scalar.plusSlot.transform.position;
-        RenderLine();
-    }
 
-    void RenderLine()
-    {
         lineRenderer.SetPosition(0, pointA.position);
         lineRenderer.SetPosition(1, pointB.position);
+    }
+
+    private void OnDisable()
+    {
+        lineRenderer.enabled = false;
     }
 }
