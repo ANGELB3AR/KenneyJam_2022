@@ -349,6 +349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minus Dart
       objectReference: {fileID: 0}
+    - target: {fileID: 6181326395693746963, guid: 63849fd1cc3419a45baa86a762a587c1, type: 3}
+      propertyPath: m_TagString
+      value: MinusDart
+      objectReference: {fileID: 0}
     - target: {fileID: 7274530235930989168, guid: 63849fd1cc3419a45baa86a762a587c1, type: 3}
       propertyPath: readyPosition
       value: 
@@ -376,6 +380,10 @@ PrefabInstance:
     - target: {fileID: 1651204245234439569, guid: bbda4cee0be479e439a07d38d04b651c, type: 3}
       propertyPath: m_Name
       value: Plus Dart
+      objectReference: {fileID: 0}
+    - target: {fileID: 1651204245234439569, guid: bbda4cee0be479e439a07d38d04b651c, type: 3}
+      propertyPath: m_TagString
+      value: PlusDart
       objectReference: {fileID: 0}
     - target: {fileID: 1651204245234439570, guid: bbda4cee0be479e439a07d38d04b651c, type: 3}
       propertyPath: m_RootOrder

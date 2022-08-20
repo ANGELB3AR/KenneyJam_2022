@@ -5,8 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Dart minusDart;
-    [SerializeField] Dart plusDart;
+    Dart minusDart;
+    Dart plusDart;
+
+    private void Awake()
+    {
+        minusDart = GameObject.FindGameObjectWithTag("MinusDart").GetComponent<Dart>();
+        plusDart = GameObject.FindGameObjectWithTag("PlusDart").GetComponent<Dart>();
+    }
 
     private void Update()
     {

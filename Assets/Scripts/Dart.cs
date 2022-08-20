@@ -24,7 +24,7 @@ public class Dart : MonoBehaviour
         ResetDart();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (hasFired) { return; }
         ResetDart();
@@ -42,7 +42,6 @@ public class Dart : MonoBehaviour
             {
                 Scalar.minusSlot = platform;
             }
-            hasFired = true;
         }
         else
         {
