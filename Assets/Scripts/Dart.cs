@@ -108,7 +108,7 @@ public class Dart : MonoBehaviour
 
     private void OnDisable()
     {
-        currentPlatform.OnFinishedScaling -= ResetDart;
+        //currentPlatform.OnFinishedScaling -= ResetDart;
         Scalar.OnDisableTether -= ResetDart;
     }
 }

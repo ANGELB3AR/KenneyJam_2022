@@ -17,17 +17,18 @@ public class Scalar : MonoBehaviour
     {
         if (minusSlot != null && plusSlot != null)
         {
-            EnableTether();
+            if (minusSlot == plusSlot)
+            {
+                DisableTether();
+                return;
+            }
+
+            ScalePlatforms();
 
             if (minusSlot.isScaling || plusSlot.isScaling)
             {
                 DisableTether();
             }
-        }
-
-        if (plusSlot == minusSlot)
-        {
-            DisableTether();
         }
     }
 
@@ -35,11 +36,6 @@ public class Scalar : MonoBehaviour
     {
         minusSlot.ScaleDown();
         plusSlot.ScaleUp();
-    }
-
-    void EnableTether()
-    {
-        ScalePlatforms();
     }
 
     void DisableTether()
