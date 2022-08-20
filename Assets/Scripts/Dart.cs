@@ -34,7 +34,7 @@ public class Dart : MonoBehaviour
         ResetDart();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (hasFired) { return; }
         ResetDart();
