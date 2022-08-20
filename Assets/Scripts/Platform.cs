@@ -48,8 +48,6 @@ public class Platform : MonoBehaviour
         Vector3 originalScale = transform.localScale;
         Vector3 newScale = originalScale + new Vector3(Scalar.ScaleAmount, Scalar.ScaleAmount, Scalar.ScaleAmount);
 
-        Scalar.Particles.enabled = true;
-
         float i = 0f;
         float rate = (1f / time);
 
@@ -61,7 +59,6 @@ public class Platform : MonoBehaviour
         }
         isScaling = false;
         OnFinishedScaling?.Invoke();
-        Scalar.Particles.enabled = false;
     }
 
     IEnumerator ScaleBlockDown(float time)
@@ -70,8 +67,6 @@ public class Platform : MonoBehaviour
         Vector3 originalScale = transform.localScale;
         Vector3 newScale = originalScale - new Vector3(Scalar.ScaleAmount, Scalar.ScaleAmount, Scalar.ScaleAmount);
 
-        Scalar.Particles.enabled = true;
-
         float i = 0f;
         float rate = (1f / time);
 
@@ -83,6 +78,5 @@ public class Platform : MonoBehaviour
         }
         isScaling = false;
         OnFinishedScaling?.Invoke();
-        Scalar.Particles.enabled = false;
     }
 }
