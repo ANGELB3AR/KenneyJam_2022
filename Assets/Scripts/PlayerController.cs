@@ -18,11 +18,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            minusDart.ResetDart();
             FireMinusDart();
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
+            plusDart.ResetDart();
             FirePlusDart();
         }
     }

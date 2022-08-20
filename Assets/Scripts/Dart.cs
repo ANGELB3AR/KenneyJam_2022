@@ -10,6 +10,7 @@ public class Dart : MonoBehaviour
     [SerializeField] float defaultFireDistance = 100f;
 
     Rigidbody rb;
+    Collider myCollider;
     Scalar Scalar;
     Camera mainCamera;
     Platform currentPlatform = null;
@@ -18,8 +19,14 @@ public class Dart : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        myCollider = GetComponent<Collider>();
         Scalar = FindObjectOfType<Scalar>();
         mainCamera = Camera.main;
+    }
+
+    private void OnEnable()
+    {
+        Scalar.OnDisableTether += ResetDart;
     }
 
     private void Start()
@@ -68,16 +75,18 @@ public class Dart : MonoBehaviour
         }
     }
 
-    void ResetDart()
+    public void ResetDart()
     {
         transform.position = readyPosition.position;
         transform.rotation = readyPosition.rotation;
+        myCollider.enabled = false;
         hasFired = false;
     }
 
     public void LaunchDart()
     {
         hasFired = true;
+        myCollider.enabled = true;
 
         Ray ray = mainCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
@@ -100,5 +109,6 @@ public class Dart : MonoBehaviour
     private void OnDisable()
     {
         currentPlatform.OnFinishedScaling -= ResetDart;
+        Scalar.OnDisableTether -= ResetDart;
     }
 }
