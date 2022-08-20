@@ -52,4 +52,9 @@ public class Dart : MonoBehaviour
         transform.rotation = readyPosition.rotation;
         hasFired = false;
     }
+
+    public void LaunchDart()
+    {
+        Debug.Log("Firing Dart");
+    }
 }
