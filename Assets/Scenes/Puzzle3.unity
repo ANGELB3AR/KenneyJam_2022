@@ -17397,6 +17397,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 358008261434143194, guid: d3697101f101d984997eae6c021dc4bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 965648851115144098, guid: d3697101f101d984997eae6c021dc4bc, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1920566584509165309, guid: d3697101f101d984997eae6c021dc4bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.08
@@ -17487,6 +17495,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5115535740170562055, guid: d3697101f101d984997eae6c021dc4bc, type: 3}
       propertyPath: movementSettings.RunMultiplier
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176285814295890235, guid: d3697101f101d984997eae6c021dc4bc, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

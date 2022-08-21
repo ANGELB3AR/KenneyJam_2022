@@ -5,11 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    LevelManager levelManager;
     Dart minusDart;
     Dart plusDart;
 
     private void Awake()
     {
+        levelManager = FindObjectOfType<LevelManager>();
+
         minusDart = GameObject.FindGameObjectWithTag("MinusDart").GetComponent<Dart>();
         plusDart = GameObject.FindGameObjectWithTag("PlusDart").GetComponent<Dart>();
     }
@@ -26,6 +29,11 @@ public class PlayerController : MonoBehaviour
         {
             plusDart.ResetDart();
             FirePlusDart();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            levelManager.QuitGame();
         }
     }
 

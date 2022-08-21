@@ -30,6 +30,11 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void StartGame()
+    {
+        SceneManager.LoadScene(firstLevel);
+    }
+
     public void ResetCurrentLevel()
     {
         StartCoroutine(ResetLevelRoutine());
@@ -40,9 +45,9 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LoadNextLevelRoutine(levelToLoad));
     }
 
-    public void StartGame()
+    public void QuitGame()
     {
-        SceneManager.LoadScene(firstLevel);
+        Application.Quit();
     }
 
     IEnumerator ResetLevelRoutine()
