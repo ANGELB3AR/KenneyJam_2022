@@ -17,7 +17,6 @@ public class Portal : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("Triggered collider");
             levelManager.LoadNextLevel(nextLevel);
 
             if (nextLevel < 0)

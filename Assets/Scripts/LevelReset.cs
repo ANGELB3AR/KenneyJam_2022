@@ -15,7 +15,6 @@ public class LevelReset : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            print("Triggered collider");
             levelManager.ResetCurrentLevel();
         }
     }
