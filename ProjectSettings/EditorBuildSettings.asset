@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Proto_puzzle1.unity
+    path: Assets/Scenes/Puzzle1.unity
     guid: 6cf7edda446e0cd4ea820e7214b9f78d
   - enabled: 1
     path: Assets/Scenes/Puzzle2.unity
@@ -14,7 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle3.unity
     guid: 5dcfefd8177b19e4e96bb732aab7c3d3
-  - enabled: 1
-    path: Assets/Scenes/Angel's Sandbox.unity
-    guid: 87afffa71f9d5a9479706e093cb445c1
   m_configObjects: {}
