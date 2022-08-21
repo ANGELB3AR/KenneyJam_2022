@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [SerializeField] AudioClip backgroundMusic;
+
     private void Awake()
     {
         ManageSingleton();
